@@ -3,7 +3,7 @@ name: Test and Deploy
 on:
     pull_request:
  jobs:
-    test:
+  test:
     name: Test
     runs-on: ubuntu-latest
 
@@ -19,7 +19,9 @@ on:
         bundle config --local path vendor/bundle
         bundle config --local without production
         bundle install
-                                                                                                            - run: RAILS_ENV=test bundle exec rails assets:precompile                                                                 
+        
+    - run: RAILS_ENV=test bundle exec rails assets:precompile                                                                 
+    
     - run: bundle exec rails test
-
-
+    
+    
